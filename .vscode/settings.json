@@ -1,4 +1,5 @@
 {
     "dbt.executablePath": "C:\\Education\\dbt\\.venv\\Scripts\\dbt.exe",
-    "dbt.pythonPath": "C:\\Education\\dbt\\.venv\\Scripts\\python.exe"
+    "dbt.pythonPath": "C:\\Education\\dbt\\.venv\\Scripts\\python.exe",
+    "editor.acceptSuggestionOnEnter": "off"
 }

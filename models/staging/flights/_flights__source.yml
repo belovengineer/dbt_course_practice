@@ -1,6 +1,87 @@
 sources:
   - name: demo_src
+    description: Данные из БД авиаперелетов
     tables:
       - name: aircrafts
+        description: Модели самолетов
+        columns:
+          - name: aircraft_code
+            description: Код модели самолета
+          - name: model
+            description: Название модели самолета
+          - name: range
+            description: Неизвестное поле
       - name: airports
-      - name: sources
+        description: Аэропорты
+        columns:
+          - name: airport_code
+            description: Код аэропорта
+          - name: airport_name
+            description: Название аэропорта
+          - name: city
+            description: Город расположения аэропорта
+          - name: coordinates
+            description: Координаты аэропорта
+          - name: timezone
+            description: Часовой пояс аэропорта
+      - name: boarding_passes
+        columns:
+          - name: ticket_no
+          - name: flight_id
+          - name: boarding_no
+          - name: seat_no
+      - name: flights
+        columns: 
+          - name: flight_id
+          - name: flight_no
+          - name: scheduled_departure
+          - name: scheduled_arrival
+          - name: departure_airport
+          - name: arrival_airport
+          - name: status
+          - name: aircraft_code
+          - name: actual_departure
+          - name: actual_arrival
+      - name: routes
+        columns: 
+          - name: flight_no
+          - name: departure_airport
+          - name: departure_airport_name
+          - name: departure_city
+          - name: arrival_airport
+          - name: arrival_airport_name
+          - name: arrival_city
+          - name: aircraft_code
+          - name: duration interval
+          - name: days_of_week
+      - name: seats
+        description: Места в самолетах
+        columns:
+          - name: aircraft_code
+            description: Код модели самолета
+          - name: seat_no
+            description: Номер места
+          - name: fare_conditions
+            description: Класс обслуживания
+      - name: tickets
+        columns: 
+          - name: ticket_no
+          - name: book_ref
+          - name: passenger_id
+          - name: passenger_name
+          - name: contact_data
+      - name: bookings
+        columns:
+          - name: book_ref
+          - name: book_date
+          - name: total_amount
+        config:
+          freshness: 
+            warn_after:
+              count: 6
+              period: hour
+            error_after:
+              count: 10000
+              period: day
+            filter: current_timestamp::date - book_date::date < 30000
+          loaded_at_field: book_date::timestamp

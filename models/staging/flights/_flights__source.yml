@@ -63,6 +63,13 @@ sources:
             description: Номер места
           - name: fare_conditions
             description: Класс обслуживания
+      - name: ticket_flights
+        description: Информация о билетах
+        columns:
+          - name: ticket_no
+          - name: flight_id
+          - name: fare_conditions
+          - name: amount
       - name: tickets
         columns: 
           - name: ticket_no

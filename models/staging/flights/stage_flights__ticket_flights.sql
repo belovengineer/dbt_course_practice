@@ -11,4 +11,6 @@ select
 	amount
 from 
     {{ source('demo_src', 'ticket_flights') }}
-    
+{%- if target.name == 'dev' %}
+limit 100000
+{%- endif %}

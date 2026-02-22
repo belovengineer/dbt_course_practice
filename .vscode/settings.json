@@ -1,5 +1,14 @@
 {
     "dbt.executablePath": "C:\\Education\\dbt\\.venv\\Scripts\\dbt.exe",
     "dbt.pythonPath": "C:\\Education\\dbt\\.venv\\Scripts\\python.exe",
-    "editor.acceptSuggestionOnEnter": "off"
+    "editor.acceptSuggestionOnEnter": "off",
+    "github.copilot.editor.enableCodeActions": false,
+    "github.copilot.chat.setupTests.enabled": false,
+    "github.copilot.chat.summarizeAgentConversationHistory.enabled": false,
+    "github.copilot.chat.useProjectTemplates": false,
+    "github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "github.copilot.nextEditSuggestions.fixes": false,
+    "github.copilot.renameSuggestions.triggerAutomatically": false,
+    "dbt.perspectiveTheme": "Vintage"
 }

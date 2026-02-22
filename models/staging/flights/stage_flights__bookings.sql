@@ -1,6 +1,8 @@
 {{
     config(
-        materialized = 'materialized_view'
+        materialized = 'incremental',
+        incremental_strategy = 'merge',
+        unique_key = ['book_ref']
     )
 }}
 
@@ -10,3 +12,7 @@ select
     total_amount
 from 
     {{ source('demo_src', 'bookings') }}
+{% if is_incremental() %}
+WHERE 
+    book_ref > (SELECT MAX(book_ref) FROM {{ this }})
+{% endif %}
